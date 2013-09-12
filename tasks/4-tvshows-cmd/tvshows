@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import requests
+import json
+import argparse
+
+def get_shows(args):
+	print 'TODO: get and print shows using requests'
+
+def add_show(args):
+	print 'TODO: create show using requests'
+
+parser = argparse.ArgumentParser(description='Command line client for shows')
+subparsers = parser.add_subparsers(title='subcommands')
+
+listParser = subparsers.add_parser('list', help='list all shows')
+listParser.set_defaults(func=get_shows)
+
+addParser = subparsers.add_parser('add', help='add a new show')
+addParser.set_defaults(func=add_show)
+addParser.add_argument('-name', help='name of the show', required=True)
+addParser.add_argument('-sid', help='show id', default='')
+
+args = parser.parse_args()
+args.func(args)

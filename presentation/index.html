@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>REST</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+
+	<style>
+		.cover h2, .cover {
+			color: white;
+			text-align: center;
+		}
+		.slide:after {
+			content: none;
+		}
+
+		.slide>div.image-fs {
+			padding: 20px 0;
+			width: 100%;
+		}
+
+		.image-fs img {
+			max-height: 100%;
+			margin: 0 auto;
+			display: block;
+		}
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Introduction to REST APIs</h1>
+		<p>Mads Mobæk, BEKK Consulting</p>
+	</header>
+	<section class="slide cover"><div>
+		<h2 style="position:absolute; left: 50px; bottom:55px; font-size: 60px">Introduction to REST APIs</h2>
+		<p style="position:absolute; left: 50px; bottom:0">Mads Mobæk, BEKK Consulting</p>
+		<img src="images/train.jpg" />
+		<figcaption style="position:absolute; bottom: 10px; right: 10px; color: black;font-size:12px">Lego trains zooooom - by floheinstein - CC BY-SA 2.0</figcaption>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Goals</h2>
+		<ul>
+			<li>Know the characteristics of REST-apis</li>
+			<li>Task 1: Use an existing API from curl</li>
+			<li>Task 2: Create your own simple REST-API using python</li>
+			<li>Task 3: Use an existing API from from JS (front-end)</li>
+			<li>Task 4/5: Use an existing API from Python (back-end to backend &amp; command line)</li>
+			<li>Have knowledge of how you can prevent others from using your API</li>
+			
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>API</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Web APIs</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>REST</h2>
+		<ul>
+			<li>An architectural style for distributed applications, consisting of several constraints</li>
+			<li>Unless all constraints are followed, REST purists will argue that its not a REST api but HTTP over JSON</li>
+			<li>Protocol and platform independant, but usually REST over HTTP. Builds upon HTTP insted of reinventing the wheel</li>
+			<li>REST, RESTful web services, REST web services</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>REST constraints</h2>
+		<ul>
+			<li>Client-server - separation of concerns</li>
+			<li>Stateless, as in all session state stored on the client</li>
+			<li>Responses should be cacheable where possible to improve performance</li>
+			<li>Layered to reduce complexity and promote independence of each component</li>
+			<li>Uniform interface for simplicity</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Interface constraints</h2>
+		<ul>
+			<li>Identification of resources - "the nouns"</li>
+			<li>Manipulation of resources - "the verbs"</li>
+			<li>Self-descriptive messages and resource representations</li>
+			<li>Hypermedia-driven</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Resources</h2>
+		<ul>
+			<li>The nouns: accounts, cities, people, documents</li>
+			<li>Are manipulated by verbs</li>
+			<li>Has its own address: http://server.com/api/accounts</li>
+			<li>May be found in multiple representations, e.g.
+				<ul>
+					<li>http://server.com/api/accounts.json</li>
+					<li>http://server.com/api/accounts.pdf</li>
+				</ul>
+			</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Verbs (in HTTP)</h2>
+		<p>
+			<strong>Safe:</strong> without side-effects</br>
+			<strong>Idempotent:</strong> always the same result
+		</p>
+		<table>
+			<tr><th>Verb</th><th>Safe</th><th>Idempotent</th></tr>
+			<tr><td>GET</td><td>Safe</td><td>Idempotent</td></tr>
+			<tr><td>PUT (update), DELETE</td><td>Not safe</td><td>Idempotent</td></tr>
+			<tr><td>POST (create)</td><td>Not safe</td><td>Not idempotent</td></tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Representations</h2>
+		<p>Client requests representation via header (Accept: application/json) or URL (accounts.json). JSON
+			is often used:</p>
+		
+		<pre>
+		<code>
+			{
+			  "id": 1, 
+			  "name": "Breaking bad"
+			}
+		</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Using HTTP response codes</h2>
+		<table>
+			<tr><th>Code</th><th>Usage</th></tr>
+			<tr><td>2xx</td><td>Success</td></tr>
+			<tr><td>3xx</td><td>Redirect for further processing</td></tr>
+			<tr><td>4xx</td><td>Client error</td></tr>
+			<tr><td>5xx</td><td>Server error</td></tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Example clients</h2>
+		<ul>
+			<li>Single-page apps in JavaScript</li>
+			<li>Serverside web application. Integrates against REST resources and delivers "traditional" websites</li>
+			<li>Native apps for iOS, Android, Windows Phone</li>
+			<li>Desktop applications</li>
+			<li>Curl</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Getting practical</h2>
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview1.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview2a.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview2b.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview3.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview4.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/overview5.png" />
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Security</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Security</h2>
+		<figure>
+		<blockquote>
+			<p>
+			There has been a lot of concern related to REST security and the perception that REST lacks strong security tools/controls. The reality is that, if implemented according to the HTTP RFC, REST is no more vulnerable or secure than any other web application/standard. [...] all web services are susceptible to a number of vulnerabilities - whether they use REST or SOAP. The key in countering these vulnerabilities is in the implementation of the service
+			</p>
+		</blockquote>
+		<figcaption>Guidelines for implementing REST, National Security Agency 2011</figcaption>
+		</figure>
+
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/security-pub.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/security-b2b.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/security-intern.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/security-vpn.png" />
+	</div></section>
+
+	<section class="slide"><div class="image-fs">
+		<img src="images/security-session.png" />
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Tips</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Final recommendations</h2>
+		<ul>
+			<li>Purist vs. pragmatist (choose the latter)</li>
+			<li>A native app client has different attack surface than a web application. Think of security in server context and client context.</li>
+			<li>Research and apply security measures before going to production</li>
+			<li>Think forward. What will happen to existing clients if you update the API?</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Final recommendations</h2>
+		<ul>
+			<li>Keep resources light. Move business logic to business layer</li>
+			<li>Allow yourself to spend some time designing the API</li>
+			<li>Design as if you were to support three different clients or more. This improves API usability and separation of concerns</li>
+		</ul>
+	</div></section>
+
+<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

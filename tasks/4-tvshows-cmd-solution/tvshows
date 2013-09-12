@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+import requests
+import json
+import argparse
+
+def get_shows(args):
+	r = requests.get('http://localhost:5000/shows')
+	shows = r.json()['shows']
+	print "{0} shows".format(len(shows))
+	print "============================="
+	print "{0:<3} {1:<10} {2}".format("ID", "SID", "NAME")
+
+	for show in shows:
+		print '{0:<3} {1:<10} {2}'.format(show['id'], show['sid'], show['name'])
+
+def add_show(args):
+	show = {
+		"name": args.name,
+		"sid": args.sid
+	}
+	headers = {'content-type': 'application/json'}
+	r = requests.post("http://localhost:5000/shows", data=json.dumps(show), headers=headers)
+	if r.status_code == 201:
+		print "Added show with name '{0}'".format(args.name)
+	else:
+		print "Failed to add show ({0})".format(r.status_code)
+		print r.text
+
+parser = argparse.ArgumentParser(description='Command line client for shows')
+subparsers = parser.add_subparsers(title='subcommands')
+
+listParser = subparsers.add_parser('list', help='list all shows')
+listParser.set_defaults(func=get_shows)
+
+addParser = subparsers.add_parser('add', help='add a new show')
+addParser.set_defaults(func=add_show)
+addParser.add_argument('-name', help='name of the show', required=True)
+addParser.add_argument('-sid', help='show id', default='')
+
+args = parser.parse_args()
+args.func(args)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shows</title>
+	<script src="static/jquery-2.0.3.min.js"></script>
+	<script src="static/showsService.js"></script>
+	<script src="static/showsController.js"></script>
+	<script>
+	$(function() {
+		var controller = new ShowController($("#shows"), $("#new-show"));
+		controller.getShows();
+	});
+	</script>
+</head>
+<body>
+	<h1>Shows</h1>
+	<form id="new-show" method="post">
+		<input type="text" name="name" placeholder="Name" size="30" required="required" /> 
+		<input type="text" name="sid" placeholder="Show ID" />
+		<input type="submit" value="Create" />
+	</form>
+	<ul id="shows">
+	</ul>
+</body>
+</html>

@@ -1,0 +1,8 @@
+python server.py
+
+curl http://app99:pass99@localhost:5001/shows/3001
+
+// Other examples
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Braking Bad"}' http://localhost:5000/shows
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "Breaking Bad"}' http://localhost:5000/shows/1
+curl -X DELETE -H "Content-Type: application/json" http://localhost:5000/shows/1
