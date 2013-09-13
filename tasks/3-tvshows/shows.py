@@ -23,11 +23,11 @@ class Shows:
 		return show
 
 	def update(self, show_id, data):
-		show = get(show_id)
+		show = self.get(show_id)
 		show.update(data)
 		return show
 
 	def delete(self, show_id):
-		show = get(show_id)
+		show = self.get(show_id)
 		self.shows.remove(show)
 		return show
