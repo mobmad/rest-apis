@@ -230,31 +230,67 @@
 		<img src="presentation/images/security-b2b.png" />
 	</div></section>
 
+	<section class="slide"><div>
+		<h2>OAuth</h2>
+		<ul>
+			<li>Access on behalf of user. With OAuth you avoid the need to store users password in your app. Instead you store a token</li>
+			<li>A token is usually tied to "scopes", i.e. what the user allowed your
+				app to to: "Read my status: OK. See my photos: NO"</li>
+			<li>Tokens can be revoked to remove access. Much more convenient than changing
+				the password.</li>
+			<li>OAuth 1.0a - message signatures and nonces required. Twitter</li>
+			<li>OAuth 2.0 - dropped signatures. Relies on SSL. Facebook, Github</li>
+		</ul>
+	</div></section>
+
 	<section class="slide"><div class="image-fs">
-		<h2>On behalf of user (OAuth)</h2>
-		<img src="presentation/images/oauth.png" />
+		<img src="presentation/images/oauth001.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth002.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth003.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth004.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth005.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth006.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth007.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth008.png" />
+	</div></section>
+	<section class="slide"><div class="image-fs">
+		<img src="presentation/images/oauth009.png" />
 	</div></section>
 
 	<section class="slide shout"><div>
-		<h2>Tips</h2>
+		<h2>Summary</h2>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Final recommendations</h2>
+		<h2>My tips</h2>
 		<ul>
-			<li>Purist vs. pragmatist (choose the latter)</li>
-			<li>A native app client has different attack surface than a web application. Think of security both server and client context.</li>
+			<li>REST purist vs. pragmatist</li>
+			<li>Think of security both server and client context. A native app client has different attack surface than a web application</li>
 			<li>Research and apply security measures before going to production</li>
 			<li>Think forward. What will happen to existing clients if you update the API?</li>
 		</ul>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Final recommendations</h2>
+		<h2>My tips</h2>
 		<ul>
 			<li>Keep resources light. Move business logic to business layer</li>
 			<li>Allow yourself to spend some time designing the API</li>
-			<li>Design as if you were to support three different clients or more. This improves API usability and separation of concerns</li>
+			<li>Design as if you were to support three different clients or more. This improves API usability and the separation of concerns</li>
 		</ul>
 	</div></section>
 
