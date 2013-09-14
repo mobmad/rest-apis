@@ -1,9 +1,8 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
-from shows import Shows
 from flask import render_template
-import requests
+from shows import Shows
 from apiexception import ApiException
 
 app = Flask(__name__)
@@ -28,17 +27,6 @@ def create_show():
 @app.route('/shows/<int:show_id>', methods=['GET'])
 def get_show(show_id):
 	show = shows.get(show_id)
-
-	# TODO: Implement
-	# Should lookup show rating from the showratings API (remember to start 
-	# it from 1-showratings-api).
-	# If the show was found in showratings-api (using sid as the identifier),
-	# it should be merged into your show object, e.g show['rating'] = result from 
-	# showratings API
-	#
-	# Hint: requests has been imported for you and should be useful, see docs at:
-	# http://docs.python-requests.org/en/latest/
-
 	return jsonify(show)
 
 @app.route('/shows/<int:show_id>', methods=['PUT'])

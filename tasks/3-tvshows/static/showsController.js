@@ -8,14 +8,13 @@ ShowController.prototype = {
 	createShow: function(e) {
 		e.preventDefault();
 
-		alert("Implement me!");
-		// Should get values from gui and use ShowsService to create the show
+		alert("TODO: Implement me!");
+		// TODO: Should get values from gui and use ShowsService to create the show
 	},
 	addShow: function(show) {
 		this.showsView.append("<li>" + show.name + "</li>")
 	},
 	getShows: function() {
-		// IMPLEMENT
-		// Should use ShowsService to list shows
+		// TODO: Should use ShowsService to list shows
 	}	
 }

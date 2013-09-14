@@ -4,7 +4,9 @@ import json
 import argparse
 
 def get_shows(args):
-	print 'TODO: get and print shows using requests'
+	print 'TODO: get and print shows using HTTP to the 3-tvshows-solution server'
+	# See http://docs.python-requests.org/en/latest/ for help on how to make
+	# HTTP requests in python using requests
 
 def add_show(args):
 	print 'TODO: create show using requests'

@@ -34,3 +34,6 @@ def get_show(show_id):
 
 if __name__ == '__main__':
 	app.run(debug=True, port=5001)
+
+# TODO: run server.py to start the server, and run curl and your browser against
+# the API as instructed in the companion presentation

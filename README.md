@@ -11,6 +11,9 @@ By following the [presentation](http://mobmad.github.io/rest-apis/) and completi
 ## Tasks
 Follow the [presentation](http://mobmad.github.io/rest-apis/). When instructed, open a `tasks/<task-number>` folder. When done or you're stuck, have a look at `tasks/<task-number>-solution` for one way at solving the task.
 
+Tip: search for "TODO" within the task files to find starting points for where you have to
+implement code
+
 ## What's not covered? (aka Disclaimer)
 This tutorial should be considered a starting point and not an exhaustive guide for implementing REST APIs.
 For brevity, several topics have been left out, such as:
